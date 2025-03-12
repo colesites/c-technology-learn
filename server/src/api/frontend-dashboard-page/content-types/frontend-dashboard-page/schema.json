@@ -1,0 +1,78 @@
+{
+  "kind": "singleType",
+  "collectionName": "frontend_dashboard_pages",
+  "info": {
+    "singularName": "frontend-dashboard-page",
+    "pluralName": "frontend-dashboard-pages",
+    "displayName": "Frontend Dashboard Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "the_internet_subtopics": {
+      "type": "json"
+    },
+    "the_internet": {
+      "type": "string"
+    },
+    "html": {
+      "type": "string"
+    },
+    "css": {
+      "type": "string"
+    },
+    "css_framework_lib": {
+      "type": "string"
+    },
+    "js": {
+      "type": "string"
+    },
+    "ts": {
+      "type": "string"
+    },
+    "vcs": {
+      "type": "string"
+    },
+    "js_framework_lib": {
+      "type": "string"
+    },
+    "html_subtopics": {
+      "type": "json"
+    },
+    "css_subtopics": {
+      "type": "json"
+    },
+    "css_framework_lib_subtopics": {
+      "type": "json"
+    },
+    "js_subtopics": {
+      "type": "json"
+    },
+    "ts_subtopics": {
+      "type": "json"
+    },
+    "vcs_subtopics": {
+      "type": "json"
+    },
+    "course_name": {
+      "type": "string"
+    },
+    "the_internet_internet_history": {
+      "type": "richtext"
+    },
+    "how_internet_works": {
+      "type": "richtext"
+    },
+    "js_framework_lib_subtopics": {
+      "type": "json"
+    },
+    "http": {
+      "type": "richtext"
+    },
+    "https": {
+      "type": "richtext"
+    }
+  }
+}

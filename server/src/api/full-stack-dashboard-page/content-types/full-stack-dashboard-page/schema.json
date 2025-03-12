@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "full_stack_dashboard_pages",
+  "info": {
+    "singularName": "full-stack-dashboard-page",
+    "pluralName": "full-stack-dashboard-pages",
+    "displayName": "Full Stack Dashboard Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "course_name": {
+      "type": "string"
+    }
+  }
+}

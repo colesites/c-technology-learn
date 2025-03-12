@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "backend_dashboard_pages",
+  "info": {
+    "singularName": "backend-dashboard-page",
+    "pluralName": "backend-dashboard-pages",
+    "displayName": "Backend Dashboard Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "course_name": {
+      "type": "string"
+    }
+  }
+}

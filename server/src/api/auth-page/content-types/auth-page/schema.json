@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "auth_pages",
+  "info": {
+    "singularName": "auth-page",
+    "pluralName": "auth-pages",
+    "displayName": "Auth Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "username_label": {
+      "type": "string"
+    },
+    "email_label": {
+      "type": "string"
+    },
+    "password_label": {
+      "type": "string"
+    }
+  }
+}

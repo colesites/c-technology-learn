@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "navigations",
+  "info": {
+    "singularName": "navigation",
+    "pluralName": "navigations",
+    "displayName": "Navigation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "signup": {
+      "type": "string"
+    },
+    "signin": {
+      "type": "string"
+    },
+    "getstarted": {
+      "type": "string"
+    }
+  }
+}

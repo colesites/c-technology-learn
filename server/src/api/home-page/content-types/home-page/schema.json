@@ -1,0 +1,66 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "Home Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "hero_title": {
+      "type": "string"
+    },
+    "hero_description": {
+      "type": "text"
+    },
+    "details_title_1": {
+      "type": "string"
+    },
+    "details_title_2": {
+      "type": "string"
+    },
+    "details_description_1": {
+      "type": "text"
+    },
+    "details_description_2": {
+      "type": "text"
+    },
+    "second_details_title": {
+      "type": "string"
+    },
+    "card_1_title": {
+      "type": "string"
+    },
+    "card_2_title": {
+      "type": "string"
+    },
+    "card_3_title": {
+      "type": "string"
+    },
+    "card_4_title": {
+      "type": "string"
+    },
+    "card_5_title": {
+      "type": "string"
+    },
+    "card_1_description": {
+      "type": "text"
+    },
+    "card_2_description": {
+      "type": "text"
+    },
+    "card_3_description": {
+      "type": "text"
+    },
+    "card_4_description": {
+      "type": "text"
+    },
+    "card_5_description": {
+      "type": "text"
+    }
+  }
+}
