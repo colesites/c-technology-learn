@@ -32,18 +32,31 @@ export function AppSidebar({
     <Sidebar className="py-3.5 pl-2">
       <SidebarHeader>
         <div className="flex items-center space-x-4 mb-2">
-          <Image src="/logo.png" alt="logo" width={25} height={25} />
-          <h2 className="!text-base">C Tech Learn</h2>
+          <Image
+            src="/logo.png"
+            alt="logo"
+            width={25}
+            height={25}
+            className="hidden dark:block"
+          />
+          <Image
+            src="/dark-logo.png"
+            alt="logo"
+            width={25}
+            height={25}
+            className="block dark:hidden"
+          />
+          <h2 className="!text-base dark:!text-white !text-primary">C Tech Learn</h2>
         </div>
         <Separator className="bg-gray-400/40" />
         {isFrontendRoute(pathname) && (
-          <h3 className="!text-sm !text-left">Frontend Development</h3>
+          <h3 className="!text-sm !text-left dark:!text-white !text-primary">Frontend Development</h3>
         )}
         {isBackendRoute(pathname) && (
-          <h3 className="!text-sm !text-left">Backend Development</h3>
+          <h3 className="!text-sm !text-left dark:!text-white !text-primary">Backend Development</h3>
         )}
         {isFullStackRoute(pathname) && (
-          <h3 className="!text-sm !text-left">Fullstack Development</h3>
+          <h3 className="!text-sm !text-left dark:!text-white !text-primary">Fullstack Development</h3>
         )}
       </SidebarHeader>
       {isFrontendRoute(pathname) && (

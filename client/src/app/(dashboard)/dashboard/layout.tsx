@@ -25,10 +25,10 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} custom-scrollbar`}>
+      <body className={`${montserrat.variable} custom-scrollbar dark:bg-primary bg-white dark:text-white text-primary`}>
         <SidebarProvider>
           <AppSidebar sidebarMenuItemData={sidebarMenuItemData} />
-          <main>
+          <main className="w-full">
             <DashboardNavBar />
             {children}
           </main>

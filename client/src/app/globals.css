@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+
 @layer base {
   body {
     @apply bg-primary text-white;
@@ -22,6 +24,29 @@
   h3 {
     @apply text-2xl font-medium text-white text-left;
   }
+
+  .markdown-body h1,
+  .markdown-body h2,
+  .markdown-body h3,
+  .markdown-body h4,
+  .markdown-body h5,
+  .markdown-body h6 {
+    @apply text-inherit text-left !border-none;
+  }
+
+  .markdown-body ul {
+    @apply list-disc pl-5;
+  }
+
+  .markdown-body ol {
+    @apply list-decimal pl-5;
+  }
+
+  .markdown-body ul,
+  .markdown-body ol {
+    @apply ml-4;
+  }
+
   :root {
     --sidebar-background: transparent;
 
@@ -40,19 +65,19 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --sidebar-background: 240 5.9% 10%;
+    --sidebar-background: transparent;
 
     --sidebar-foreground: 240 4.8% 95.9%;
 
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary: 240 5.9% 10%;
 
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 98%;
 
-    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent: 240 4.8% 95.9%;
 
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
 
-    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
@@ -72,10 +97,16 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    @apply bg-transparent
+    @apply bg-transparent;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-[hsl(220,13%,91%)] rounded-full
+    @apply bg-[hsl(220,13%,91%)] rounded-full;
+  }
+}
+
+@layer components {
+  .dropdown-btn {
+    @apply flex items-center gap-2 rounded-md p-1;
   }
 }

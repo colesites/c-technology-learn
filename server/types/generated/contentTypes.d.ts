@@ -488,6 +488,7 @@ export interface ApiFrontendDashboardPageFrontendDashboardPage
     html_subtopics: Schema.Attribute.JSON;
     http: Schema.Attribute.RichText;
     https: Schema.Attribute.RichText;
+    intro: Schema.Attribute.RichText;
     js: Schema.Attribute.String;
     js_framework_lib: Schema.Attribute.String;
     js_framework_lib_subtopics: Schema.Attribute.JSON;

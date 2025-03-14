@@ -73,6 +73,9 @@
     },
     "https": {
       "type": "richtext"
+    },
+    "intro": {
+      "type": "richtext"
     }
   }
 }

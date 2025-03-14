@@ -1,9 +1,11 @@
+import Intro from "@/components/shared/the-internet/Intro";
+
 const page = () => {
-    return(
-        <section>
-            <h1>Introduction page</h1>
-        </section>
-    )
-}
+  return (
+    <section>
+      <Intro />
+    </section>
+  );
+};
 
 export default page;

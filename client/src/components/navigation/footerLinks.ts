@@ -2,7 +2,7 @@ export const footerLinks = {
     Solutions: [
       { name: "C Tech Learn", href: "" },
       { name: "C Insights", href: "" },
-      { name: "Ekiti Innovation", href: "https://ek-innovation-summit-pitch.vercel.app/" },
+      { name: "EK Summit Pitch", href: "https://ek-innovation-summit-pitch.vercel.app/" },
       { name: "Bubble", href: "" },
     ],
     Company: [
