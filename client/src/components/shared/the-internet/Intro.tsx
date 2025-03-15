@@ -6,7 +6,7 @@ const Intro = async () => {
   const sidebarMenuItemData = await getSidebarMenuItemsAPI();
 
   return (
-    <TopicContainer>
+    <TopicContainer lessonId={sidebarMenuItemData.intro}>
       {sidebarMenuItemData.intro}
     </TopicContainer>
   );
