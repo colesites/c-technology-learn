@@ -8,7 +8,7 @@ const HowTheInternetWorks = async () => {
   const sidebarMenuItemData = await getSidebarMenuItemsAPI();
 
   return (
-    <TopicContainer lessonId={sidebarMenuItemData.how_internet_works}>
+    <TopicContainer>
       {sidebarMenuItemData.how_internet_works}
     </TopicContainer>
   );

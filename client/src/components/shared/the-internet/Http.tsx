@@ -1,17 +1,13 @@
-"use server"
+"use server";
 
 import React from "react";
-import TopicContainer from "../TopicContainer";
 import { getSidebarMenuItemsAPI } from "@/app/api";
+import TopicContainer from "../TopicContainer";
 
 const Http = async () => {
   const sidebarMenuItemData = await getSidebarMenuItemsAPI();
 
-  return (
-    <TopicContainer lessonId={sidebarMenuItemData.http}>
-      {sidebarMenuItemData.http}
-    </TopicContainer>
-  );
+  return <TopicContainer>{sidebarMenuItemData.http}</TopicContainer>;
 };
 
 export default Http;

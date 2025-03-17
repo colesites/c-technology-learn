@@ -8,7 +8,7 @@ const Https = async () => {
   const sidebarMenuItemData = await getSidebarMenuItemsAPI();
 
   return (
-    <TopicContainer lessonId={sidebarMenuItemData.https}>
+    <TopicContainer>
       {sidebarMenuItemData.https}
     </TopicContainer>
   );

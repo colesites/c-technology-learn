@@ -1,6 +1,6 @@
 import { SidebarTrigger } from "../ui/sidebar";
 import { auth } from "@/auth";
-import ProgressBar from "../shared/ProgressBar";
+import ProgressBar from "./ProgressBar";
 import DropdownMenu from "./DropdownMenu";
 
 const DashboardNavBar = async () => {

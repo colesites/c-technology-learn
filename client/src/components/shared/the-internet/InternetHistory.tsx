@@ -6,7 +6,7 @@ const InternetHistory = async () => {
   const sidebarMenuItemData = await getSidebarMenuItemsAPI();
 
   return (
-    <TopicContainer lessonId={sidebarMenuItemData.the_internet_internet_history}>
+    <TopicContainer>
       {sidebarMenuItemData.the_internet_internet_history}
     </TopicContainer>
   );

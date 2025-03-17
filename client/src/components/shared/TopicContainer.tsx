@@ -10,16 +10,14 @@ import { useLessonStore } from "@/store/lessonStore";
 const TopicContainer = ({
   children,
   className,
-  lessonId,
 }: {
   children: any;
   className?: React.ReactNode;
-  lessonId: string;
 }) => {
   return (
     <MaxWidthWrapper>
       <div
-        className="markdown-body !bg-transparent py-5 dark:!text-white !text-primary overflow-y-auto"
+        className="markdown-body !bg-transparent py-5 dark:!text-white !text-primary"
       >
         <Markdown rehypePlugins={[rehypeRaw]}>{children}</Markdown>
       </div>

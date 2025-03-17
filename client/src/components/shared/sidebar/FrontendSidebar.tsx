@@ -1,13 +1,15 @@
 "use client";
 
-import React from "react";
-import { SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "../ui/sidebar";
+import React, { useEffect, useState } from "react";
+import { SidebarContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "../../ui/sidebar";
 import { CiGlobe } from "react-icons/ci";
 import { FaGit, FaHtml5, FaReact } from "react-icons/fa";
 import { IoLogoCss3 } from "react-icons/io";
 import { RiTailwindCssFill, RiJavascriptFill } from "react-icons/ri";
 import { BiLogoTypescript } from "react-icons/bi";
 import CollapsibleSection from "./CollapsibleSection";
+import Link from "next/link";
+import { getSession } from "@/actions/GetSession";
 
 const FrontendContent = ({ sidebarMenuItemData }: { sidebarMenuItemData: any }) => {
   const sidebarSections = [
@@ -21,6 +23,17 @@ const FrontendContent = ({ sidebarMenuItemData }: { sidebarMenuItemData: any }) 
     { title: sidebarMenuItemData.js_framework_lib, icon: FaReact, subtopics: sidebarMenuItemData?.css_subtopics?.items || [] },
   ];
 
+  const [session, setSession] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchSession = async () => {
+      const sessionData = await getSession();
+      setSession(sessionData);
+    };
+
+    fetchSession();
+  }, []);
+
   return (
     <SidebarContent>
       <SidebarMenu className="space-y-2">
@@ -28,7 +41,9 @@ const FrontendContent = ({ sidebarMenuItemData }: { sidebarMenuItemData: any }) 
           <CollapsibleSection key={index} title={section.title} icon={section.icon} subtopics={section.subtopics} />
         ))}
         <SidebarMenuItem>
-          <SidebarMenuButton>Online Code Editor</SidebarMenuButton>
+          <Link href={`/code-editor/${session?.user?.name}`}>
+            <SidebarMenuButton>Online Code Editor</SidebarMenuButton>
+          </Link>
         </SidebarMenuItem>
       </SidebarMenu>
     </SidebarContent>

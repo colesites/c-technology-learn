@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "../../globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/shared/app-sidebar";
+import { AppSidebar } from "@/components/shared/sidebar/app-sidebar";
 import { getSidebarMenuItemsAPI } from "@/app/api";
 import DashboardNavBar from "@/components/navigation/DashboardNavBar";
 

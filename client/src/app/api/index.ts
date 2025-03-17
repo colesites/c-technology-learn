@@ -1,3 +1,5 @@
+import { getSession } from "@/actions/GetSession";
+
 export async function fetchHomePageAPI() {
   try {
     const path = "/api/home-page";
@@ -72,3 +74,83 @@ export async function getSidebarMenuItemsAPI() {
     return null;
   }
 }
+
+
+const API_PROGRESS_URL = "http://127.0.0.1:1337/api/progresses";
+
+// Fetch session and progress data
+export const fetchProgressData = async () => {
+  try {
+    const sessionData = await getSession();
+
+    if (!sessionData?.user?.email) {
+      return { session: null, completedSubtopics: {} };
+    }
+
+    const res = await fetch(`${API_PROGRESS_URL}?filters[user][$eq]=${sessionData.user.email}`);
+    const data = await res.json();
+
+    if (data.data && data.data.length > 0) {
+      const progressEntry = data.data[0];
+      return { session: sessionData, completedSubtopics: progressEntry.completedSubtopics || {} };
+    }
+
+    return { session: sessionData, completedSubtopics: {} };
+  } catch (error) {
+    console.error("Error fetching progress data:", error);
+    return { session: null, completedSubtopics: {} };
+  }
+};
+
+// Update or create progress data
+export const updateProgressData = async (
+  session: any,
+  completedSubtopics: { [key: string]: boolean },
+  subtopic: string
+) => {
+  if (!session?.user?.email) return completedSubtopics;
+
+  const updatedProgress = {
+    ...completedSubtopics,
+    [subtopic]: true,
+  };
+
+  try {
+    const res = await fetch(`${API_PROGRESS_URL}?filters[user][$eq]=${session.user.email}`);
+    const data = await res.json();
+
+    if (data.data && data.data.length > 0) {
+      const existingEntry = data.data[0];
+
+      await fetch(`${API_PROGRESS_URL}/${existingEntry.documentId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          data: { completedSubtopics: updatedProgress },
+        }),
+      });
+    } else {
+      await fetch(API_PROGRESS_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          data: {
+            user: session.user.email,
+            completedSubtopics: updatedProgress,
+          },
+        }),
+      });
+    }
+
+    return updatedProgress; // Explicitly return the updated progress
+  } catch (error) {
+    console.error("Error updating progress data:", error);
+    return completedSubtopics; // Return the original state if an error occurs
+  }
+};

@@ -2,12 +2,12 @@
 
 import { Sidebar, SidebarFooter, SidebarHeader } from "@/components/ui/sidebar";
 import Image from "next/image";
-import FrontendContent from "./FrontendContent";
+import FrontendContent from "./FrontendSidebar";
 import { usePathname } from "next/navigation";
-import BackendContent from "./BackendContent";
-import FullStackContent from "./FullStackContent";
-import { Separator } from "../ui/separator";
-import SignOutButton from "../auth/SignOutButton";
+import BackendContent from "./BackendSidebar";
+import FullStackContent from "./FullStackSidebar";
+import { Separator } from "../../ui/separator";
+import SignOutButton from "../../auth/SignOutButton";
 
 export function AppSidebar({
   sidebarMenuItemData,
