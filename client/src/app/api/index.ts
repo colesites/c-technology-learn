@@ -154,3 +154,25 @@ export const updateProgressData = async (
     return completedSubtopics; // Return the original state if an error occurs
   }
 };
+
+export const fetchCompletedSubtopicsLength = async (): Promise<number> => {
+  try {
+    const response = await fetch("http://127.0.0.1:1337/api/progresses");
+    if (!response.ok) {
+      throw new Error(`Failed to fetch progress data: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    
+    if (!data?.data?.length || !data.data[0]?.completedSubtopics) {
+      console.warn("Invalid API response:", data);
+      return 0;
+    }
+
+    const completedSubtopics = data.data[0].completedSubtopics;
+    return Object.keys(completedSubtopics).length;
+  } catch (error) {
+    console.error("Error fetching completed subtopics:", error);
+    return 0;
+  }
+};

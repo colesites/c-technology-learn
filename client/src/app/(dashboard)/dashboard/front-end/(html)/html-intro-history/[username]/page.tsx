@@ -1,10 +1,10 @@
-import HowTheInternetWorks from "@/components/shared/the-internet/HowTheInternetWorks";
+import HtmlIntroHistory from "@/components/shared/html/HtmlIntroHistory";
 import React from "react";
 
 const page = () => {
   return (
     <section>
-      <HowTheInternetWorks />
+      <HtmlIntroHistory />
     </section>
   );
 };

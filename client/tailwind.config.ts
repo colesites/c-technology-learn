@@ -1,11 +1,13 @@
+import {heroui} from '@heroui/theme';
 import type { Config } from "tailwindcss";
 
 export default {
     darkMode: ["class"],
-    content: [
+  content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/@heroui/theme/dist/components/spinner.js"
   ],
   theme: {
   	extend: {
@@ -28,5 +30,5 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate"), require("rippleui")],
+  plugins: [require("tailwindcss-animate"),require("rippleui"),heroui()],
 } satisfies Config;

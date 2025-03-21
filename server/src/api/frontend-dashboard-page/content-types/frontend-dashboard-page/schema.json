@@ -76,6 +76,9 @@
     },
     "intro": {
       "type": "richtext"
+    },
+    "html_intro": {
+      "type": "richtext"
     }
   }
 }

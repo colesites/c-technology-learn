@@ -485,6 +485,7 @@ export interface ApiFrontendDashboardPageFrontendDashboardPage
     css_subtopics: Schema.Attribute.JSON;
     how_internet_works: Schema.Attribute.RichText;
     html: Schema.Attribute.String;
+    html_intro: Schema.Attribute.RichText;
     html_subtopics: Schema.Attribute.JSON;
     http: Schema.Attribute.RichText;
     https: Schema.Attribute.RichText;

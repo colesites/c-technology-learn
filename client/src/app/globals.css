@@ -46,6 +46,10 @@
     @apply ml-4;
   }
 
+  .markdown-body img {
+    @apply rounded-3xl;
+  }
+
   :root {
     --sidebar-background: transparent;
 
