@@ -75,7 +75,7 @@ export async function getSidebarMenuItemsAPI() {
   }
 }
 
-const API_PROGRESS_URL = "http://127.0.0.1:1337/api/progresses";
+const API_PROGRESS_URL = process.env.API_PROGRESS_URL ?? "http://127.0.0.1:1337/api/progresses";
 
 // Fetch session and progress data
 export const fetchProgressData = async () => {
@@ -163,7 +163,7 @@ export const updateProgressData = async (
 
 export const fetchCompletedSubtopicsLength = async (): Promise<number> => {
   try {
-    const response = await fetch("http://127.0.0.1:1337/api/progresses");
+    const response = await fetch(API_PROGRESS_URL);
     if (!response.ok) {
       throw new Error(`Failed to fetch progress data: ${response.statusText}`);
     }

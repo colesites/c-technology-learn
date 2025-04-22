@@ -4,7 +4,7 @@ import {
   getSidebarMenuItemsAPI,
 } from "@/app/api/index";
 
-export const revalidate = 10; // Enables ISR with a 20s cache
+export const revalidate = 10;
 
 export async function GET() {
   const sidebarMenuItemData = await getSidebarMenuItemsAPI();
