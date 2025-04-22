@@ -23,7 +23,7 @@ import AuthSeperator from "./AuthSeperator";
 import Link from "next/link";
 import FormError from "./FormError";
 import FormSuccess from "./FormSuccess";
-import { signup } from "../../../actions/signup";
+import { signup } from "@/actions/signup";
 import Image from "next/image";
 import { ArrowRight, EyeIcon, EyeOffIcon } from "lucide-react";
 import Spinner from "../ui/spinner";

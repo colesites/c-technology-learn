@@ -14,7 +14,6 @@
 //   return { success: "Email sent!" };
 // };
 
-
 // "use server";
 
 // import * as z from "zod";
@@ -61,26 +60,24 @@ const resend = new Resend(process.env.RESEND_API_KEY); // Ensure API key is set
 export const signup = async (values: z.infer<typeof SignupSchema>) => {
   // Validate form fields
   const validatedFields = await SignupSchema.spa(values);
-
+  const API_SIGNUP_URL = process.env.API_SIGNUP_URL ?? "http://127.0.0.1:1337/api/auth/local/register";
+  
   if (!validatedFields.success) {
     return { error: "Invalid fields!" };
   }
-
+  
   try {
-    const response = await fetch(
-      "http://127.0.0.1:1337/api/auth/local/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: values.username,
-          email: values.email,
-          password: values.password,
-        }),
-      }
-    );
+    const response = await fetch(API_SIGNUP_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        username: values.username,
+        email: values.email,
+        password: values.password,
+      }),
+    });
 
     const data = await response.json();
 

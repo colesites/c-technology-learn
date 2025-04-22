@@ -24,8 +24,7 @@ import AuthSeperator from "./AuthSeperator";
 import Link from "next/link";
 import FormError from "./FormError";
 import FormSuccess from "./FormSuccess";
-import { signin } from "../../../actions/signin";
-// import { useRouter } from "next/navigation";
+import { signin } from "@/actions/signin";
 import { ArrowRight, EyeIcon, EyeOffIcon } from "lucide-react";
 import Image from "next/image";
 
@@ -51,7 +50,6 @@ export const SigninForm = ({
   const [loading, setLoading] = useState(false);
   const [eyeOpen, setEyeOpen] = useState(false);
 
-
   const form = useForm<z.infer<typeof SigninSchema>>({
     resolver: zodResolver(SigninSchema),
     defaultValues: {
@@ -65,7 +63,15 @@ export const SigninForm = ({
     setError("");
     setSuccess("");
 
-    await signin(values);
+    const data = await signin(values);
+
+    if (data?.error) {
+      setError(data.error);
+      setLoading(false);
+    } else if (data?.success) {
+      setSuccess(data.success);
+      setLoading(false);
+    }
   };
 
   const handlePasswordType = () => {
