@@ -27,7 +27,7 @@ const HeroSection = async ({ home_data, nav_data }: { home_data: HomeData; nav_d
       <MaxWidthWrapper>
         <div className="dis-flex-col justify-center items-center gap-y-4">
           <h1>{home_data.hero_title}</h1>
-          <Image src="/vector.png" alt="vector-image" width={200} height={30} />
+          <Image src="/vector.png" alt="vector-image" width={200} height={30} priority />
           <p className="text-center">{home_data.hero_description}</p>
 
           {session ? (
