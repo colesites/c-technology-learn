@@ -1,0 +1,6 @@
+enum UserRole {
+    USER,
+    BACKEND_SUPER_USER,
+    FULLSTACK_SUPER_USER
+}
+

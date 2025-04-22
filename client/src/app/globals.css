@@ -106,6 +106,18 @@
   .custom-scrollbar::-webkit-scrollbar-thumb {
     @apply bg-[hsl(220,13%,91%)] rounded-full;
   }
+
+  .root-scrollbar::-webkit-scrollbar {
+    @apply w-2 rounded-full;
+  }
+
+  .root-scrollbar::-webkit-scrollbar-track {
+    @apply bg-white;
+  }
+
+  .root-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
 }
 
 @layer components {

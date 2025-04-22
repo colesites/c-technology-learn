@@ -3,40 +3,25 @@
 import React, { useState, useEffect } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import {
-  fetchCompletedSubtopicsLength,
-  getSidebarMenuItemsAPI,
-} from "@/app/api/index";
 
 const ProgressBar = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const calculateProgress = async () => {
-      const sidebarMenuItemData = await getSidebarMenuItemsAPI();
-      const completedTopics = await fetchCompletedSubtopicsLength();
-
-      const frontEndSubtopics = {
-        internet: sidebarMenuItemData.the_internet_subtopics.items,
-        html: sidebarMenuItemData.html_subtopics.items,
-        css: sidebarMenuItemData.css_subtopics.items,
-        cssFrameworks: sidebarMenuItemData.css_framework_lib_subtopics.items,
-        javascript: sidebarMenuItemData.js_subtopics.items,
-        versionControl: sidebarMenuItemData.vcs_subtopics.items,
-        typescript: sidebarMenuItemData.ts_subtopics.items,
-        jsFrameworks: sidebarMenuItemData.js_framework_lib_subtopics.items,
-      };
-
-      const total = Object.values(frontEndSubtopics).reduce(
-        (sum, items) => sum + items.length,
-        0
-      );
-
-      const frontEndProgress = (completedTopics / total) * 100;
-      setProgress(frontEndProgress);
+    const fetchProgress = async () => {
+      try {
+        const response = await fetch("/api/progress");
+        const data = await response.json();
+        setProgress(data.progress);
+      } catch (error) {
+        console.error("Error fetching progress:", error);
+      }
     };
 
-    calculateProgress();
+    fetchProgress();
+
+    const interval = setInterval(fetchProgress, 10000);
+    return () => clearInterval(interval);
   }, []);
 
   return (

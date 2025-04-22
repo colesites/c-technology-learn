@@ -75,7 +75,6 @@ export async function getSidebarMenuItemsAPI() {
   }
 }
 
-
 const API_PROGRESS_URL = "http://127.0.0.1:1337/api/progresses";
 
 // Fetch session and progress data
@@ -87,12 +86,17 @@ export const fetchProgressData = async () => {
       return { session: null, completedSubtopics: {} };
     }
 
-    const res = await fetch(`${API_PROGRESS_URL}?filters[user][$eq]=${sessionData.user.email}`);
+    const res = await fetch(
+      `${API_PROGRESS_URL}?filters[user][$eq]=${sessionData.user.email}`
+    );
     const data = await res.json();
 
     if (data.data && data.data.length > 0) {
       const progressEntry = data.data[0];
-      return { session: sessionData, completedSubtopics: progressEntry.completedSubtopics || {} };
+      return {
+        session: sessionData,
+        completedSubtopics: progressEntry.completedSubtopics || {},
+      };
     }
 
     return { session: sessionData, completedSubtopics: {} };
@@ -116,7 +120,9 @@ export const updateProgressData = async (
   };
 
   try {
-    const res = await fetch(`${API_PROGRESS_URL}?filters[user][$eq]=${session.user.email}`);
+    const res = await fetch(
+      `${API_PROGRESS_URL}?filters[user][$eq]=${session.user.email}`
+    );
     const data = await res.json();
 
     if (data.data && data.data.length > 0) {
@@ -126,7 +132,7 @@ export const updateProgressData = async (
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
           data: { completedSubtopics: updatedProgress },
@@ -137,7 +143,7 @@ export const updateProgressData = async (
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Accept": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
           data: {
@@ -163,7 +169,7 @@ export const fetchCompletedSubtopicsLength = async (): Promise<number> => {
     }
 
     const data = await response.json();
-    
+
     if (!data?.data?.length || !data.data[0]?.completedSubtopics) {
       console.warn("Invalid API response:", data);
       return 0;

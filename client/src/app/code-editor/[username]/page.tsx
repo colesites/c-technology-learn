@@ -1,8 +1,9 @@
+import ComingSoon from '@/components/shared/ComingSoon'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <ComingSoon />
   )
 }
 

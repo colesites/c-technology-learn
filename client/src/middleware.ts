@@ -4,6 +4,8 @@ import {
   authRoutes,
   apiAuthPrefix,
   DEFAULT_LOGIN_REDIRECT,
+  backendRoute,
+  fullstackRoute,
 } from "../routes";
 
 export default auth((req) => {
@@ -13,6 +15,12 @@ export default auth((req) => {
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
+  const isBackendRoute = nextUrl.pathname.startsWith(backendRoute);
+  const isFullstackRoute = nextUrl.pathname.startsWith(fullstackRoute);
+
+  if (isLoggedIn && isBackendRoute || isLoggedIn && isFullstackRoute) {
+    return Response.redirect(new URL("/courses", nextUrl));
+  }
 
   if (isApiAuthRoute) {
     return;
