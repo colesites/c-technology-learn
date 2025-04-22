@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SigninSchema } from "@/schemas";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import Spinner from "@/components/ui/spinner";
+// import Spinner from "@/components/ui/spinner";
 import {
   Form,
   FormControl,
@@ -27,6 +27,7 @@ import FormSuccess from "./FormSuccess";
 import { signin } from "@/actions/signin";
 import { ArrowRight, EyeIcon, EyeOffIcon } from "lucide-react";
 import Image from "next/image";
+import { Spinner } from "@heroui/spinner";
 
 interface AuthData {
   email_label: string;
@@ -166,7 +167,7 @@ export const SigninForm = ({
           aria-busy={loading}
         >
           {loading ? (
-            <Spinner />
+            <Spinner classNames={{label: "text-foreground mt-4"}} label="gradient" variant="gradient" />
           ) : (
             <span className="relative z-10 flex items-center justify-center">
               {nav_data.signin}{" "}

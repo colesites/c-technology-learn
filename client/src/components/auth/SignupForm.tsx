@@ -26,7 +26,7 @@ import FormSuccess from "./FormSuccess";
 import { signup } from "@/actions/signup";
 import Image from "next/image";
 import { ArrowRight, EyeIcon, EyeOffIcon } from "lucide-react";
-import Spinner from "../ui/spinner";
+import { Spinner } from "@heroui/spinner";
 
 interface AuthData {
   username_label: string;
@@ -175,7 +175,7 @@ export const SignupForm = ({
           aria-busy={loading}
         >
           {loading ? (
-            <Spinner />
+            <Spinner classNames={{label: "text-foreground mt-4"}} label="gradient" variant="gradient" />
           ) : (
             <span className="relative z-10 flex items-center justify-center">
               {nav_data.signup}{" "}
