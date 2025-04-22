@@ -1,18 +1,20 @@
-import { signOut } from "@/auth";
+"use client";
+
 import React from "react";
 import { GoSignOut } from "react-icons/go";
+import { signOut } from "@/auth";
 
 const SignOutButton = () => {
   return (
-    <form
-      action={async () => {
+    <button
+      onClick={async () => {
         await signOut();
       }}
       className="flex gap-4 items-center p-2 rounded-md hover:bg-secondary hover:text-primary cursor-pointer"
     >
       <GoSignOut className="size-5" />
-      <button type="submit">Sign Out</button>
-    </form>
+      Sign Out
+    </button>
   );
 };
 
