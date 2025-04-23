@@ -49,7 +49,7 @@ const page = async () => {
                 className="mt-5"
               >
                 <button className="p-2 rounded-md bg-primary/20 border border-white/20 hover:bg-white/10">
-                  Coming soon {/* Add a price in naira for your backend course */}
+                  Coming soon ₦25,000
                 </button>
               </Link>
             ) : (
@@ -66,7 +66,7 @@ const page = async () => {
             {session ? (
               <Link href={`/dashboard/full-stack/${session.user?.name}`} className="mt-5">
                 <button className="p-2 rounded-md bg-primary/20 border border-white/20 hover:bg-white/10">
-                  Coming soon {/* Add a price in naira for your backend course */}
+                  Coming soon ₦30,000
                 </button>
               </Link>
             ) : (

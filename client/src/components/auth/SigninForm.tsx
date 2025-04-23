@@ -9,7 +9,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SigninSchema } from "@/schemas";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-// import Spinner from "@/components/ui/spinner";
 import {
   Form,
   FormControl,
@@ -167,7 +166,9 @@ export const SigninForm = ({
           aria-busy={loading}
         >
           {loading ? (
-            <Spinner classNames={{label: "text-foreground mt-4"}} label="gradient" variant="gradient" />
+            <div className="flex items-center justify-center">
+              <Spinner color="white" variant="gradient" />
+            </div>
           ) : (
             <span className="relative z-10 flex items-center justify-center">
               {nav_data.signin}{" "}

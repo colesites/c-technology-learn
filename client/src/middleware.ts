@@ -1,4 +1,4 @@
-import { auth } from "../auth";
+import { auth } from "@/auth";
 import {
   publicRoutes,
   authRoutes,
@@ -6,7 +6,7 @@ import {
   DEFAULT_LOGIN_REDIRECT,
   backendRoute,
   fullstackRoute,
-} from "../routes";
+} from "@/routes";
 
 export default auth((req) => {
   const { nextUrl } = req;

@@ -5,7 +5,6 @@ import Markdown from "react-markdown";
 import "github-markdown-css";
 import rehypeRaw from "rehype-raw";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { useLessonStore } from "@/store/lessonStore";
 
 const TopicContainer = ({
   children,

@@ -175,7 +175,9 @@ export const SignupForm = ({
           aria-busy={loading}
         >
           {loading ? (
-            <Spinner classNames={{label: "text-foreground mt-4"}} label="gradient" variant="gradient" />
+            <div className="flex items-center justify-center">
+              <Spinner color="white" variant="gradient" />
+            </div>
           ) : (
             <span className="relative z-10 flex items-center justify-center">
               {nav_data.signup}{" "}
